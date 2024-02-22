@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Rondina</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+
+    <!-- Transitions/Animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+
+    <!-- Glide JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.6.0/dist/css/glide.core.min.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <header x-data="desktopHeader"
+        class="nav w-full sticky top-0 z-20 transition-[top] ease-in-out duration-150 font-inter bg-white text-neutral-950">
+        <div class="container mx-auto flex p-5 flex-col md:flex-row md:justify-between items-center">
+            <a href="#hero" class="flex title-font font-bold items-center text-gray-900 mb-4 md:mb-0 text-xl uppercase">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
+                    viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg> -->
+                <span class="mx-3 text-[#5151A4]">David Rondina</span>
+            </a>
+            <nav class="flex flex-wrap items-center text-base justify-center">
+                <a id="item-1" href="#about"
+                    class="nav-item mr-5 hover:underline decoration-[#5151A4] decoration-2 underline-offset-[5px] opacity-80 hover:opacity-100 font-semibold">About</a>
+                <a id="item-2" href="#skills"
+                    class="nav-item mr-5 hover:underline decoration-[#5151A4] decoration-2 underline-offset-[5px] opacity-80 hover:opacity-100 font-semibold">Skills</a>
+                <a id="item-3" href="#projects"
+                    class="nav-item mr-5 hover:underline decoration-[#5151A4] decoration-2 underline-offset-[5px] opacity-80 hover:opacity-100 font-semibold">Projects</a>
+            </nav>
+            <button
+                class="font-inter font-semibold transition ease-in-out duration-150 inline-flex border-0 text-[#5151A4] ring-[3px] ring-[#5151A4] focus:outline-none rounded hover:bg-[#5151A4] hover:ring-0 hover:text-white text-base mt-4 md:mt-0">
+                <a href="#contact" class="inline-flex items-center px-4">
+                    Contact Me
+                </a>
+            </button>
+        </div>
+    </header>
+
+    <div x-data="mobileNavBar">
+        <button @click.stop="toggle()" :class="active ? 'bg-white text-neutral-950' : 'bg-[#5151A4] text-white'"
+            class="nav-bar-btn z-[999] fixed inline-flex transition-[left] ease-in-out duration-150 top-10 w-16 h-16 justify-center items-center rounded-full active:transition-[transform] active:scale-90 shadow-lg"
+            style="left: -100px;">
+            <i :class=" active ? 'ri-close-fill' : 'ri-menu-fill'" class="text-xl"></i>
+        </button>
+
+        <div x-cloak x-show="active" class="fixed top-0 w-screen h-screen max-h-screen z-[800] p-2 bg-black/60">
+            <div class="w-full md:w-80 h-full">
+                <div @click.outside="toggle()"
+                    class="nav-container transition-[width] ease-in-out duration-150 bg-[#5151A4] h-full flex flex-col justify-center rounded-md"
+                    style="width: 0;">
+                    <nav class="mb-8 px-6">
+                        <ul class="font-inter font-bold space-y-4 text-3xl md:text-2xl text-white">
+                            <li><a @click.stop="toggle()" href="#hero"
+                                    class="hover:underline decoration-white decoration-4 underline-offset-[5px]">Home</a>
+                            </li>
+                            <li><a @click.stop="toggle()" href="#about"
+                                    class="hover:underline decoration-white decoration-4 underline-offset-[5px]">About</a>
+                            </li>
+                            <li><a @click.stop="toggle()" href="#skills"
+                                    class="hover:underline decoration-white decoration-4 underline-offset-[5px]">Skills</a>
+                            </li>
+                            <li><a @click.stop="toggle()" href="#projects"
+                                    class="hover:underline decoration-white decoration-4 underline-offset-[5px]">Projects</a>
+                            </li>
+                            <li><a @click.stop="toggle()" href="#contact"
+                                    class="hover:underline decoration-white decoration-4 underline-offset-[5px]">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <ul class="px-6 flex gap-x-6 text-2xl text-white">
+                        <li><a href="https://github.com/davidrondina"><i class="ri-github-fill"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/david-rondina-4986b92b5"><i
+                                    class="ri-linkedin-box-fill"></i></a></li>
+                        <li><a href="https://facebook.com/rondina.david"><i class="ri-facebook-circle-fill"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="min-h-screen text-neutral-700 body-font">
+            <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+                <div data-aos="fade-up" data-aos-duration="900"
+                    class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+                    <img class="z-20 object-cover object-center drop-shadow-2xl" alt="hero"
+                        src="../assets/image/portfolio-hero-image.png">
+                    <!-- <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"> -->
+                </div>
+                <div
+                    class="lg:flex-grow md:w-1/2 lg:ml-20 md:ml-16 flex flex-col md:items-start text-left items-center">
+
+                    <h1
+                        class="ml11 title-font sm:text-4xl uppercase text-3xl md:text-left text-center mb-4 font-bold text-neutral-950">
+                        <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300" class="text-wrapper">
+                            <span class="line line1"></span>
+                            <span class="letters inline">
+                                Hi, my name is
+                                <br><span class="text-[#5151A4] text-6xl">David
+                                    Rondina</span>
+                            </span>
+                        </div>
+                    </h1>
+                    <p data-aos="fade-up" data-aos-duration="900" data-aos-delay="500"
+                        class="mb-8 leading-relaxed md:text-left text-center">An
+                        Information Technology student looking for an internship or
+                        job opportunity to gain experience in Web Development or any related to his field.</p>
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="700"
+                        class="flex justify-center items-center">
+                        <!-- <button
+                            class="font-inter font-semibold transition ease-in-out duration-150 inline-flex border-0 text-[#5151A4] ring-[3px] ring-[#5151A4] focus:outline-none rounded text-lg hover:bg-[#5151A4] hover:ring-0 hover:text-white"><a
+                                href="#about" class="py-2 px-6">Get to know me</a></button> -->
+
+                        <ul class="flex items-center gap-x-5 text-3xl">
+                            <li><a href="https://github.com/davidrondina"
+                                    class="text-neutral-700 hover:text-neutral-950"><i class="ri-github-fill"></i></a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/david-rondina-4986b92b5"
+                                    class="text-neutral-700 hover:text-neutral-950"><i
+                                        class="ri-linkedin-box-fill"></i></a>
+                            </li>
+                            <li><a href="https://facebook.com/rondina.david"
+                                    class="text-neutral-700 hover:text-neutral-950"><i
+                                        class="ri-facebook-circle-fill"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="container mx-auto flex px-5 py-24 items-center">
+                <span class="grow-[2] h-[1px] inline-flex bg-gray-300"></span>
+                <ul class="mx-7 flex justify-center gap-x-5 text-3xl">
+                    <span class="grow-[2] h-[1px] inline-flex bg-gray-300"></span>
+                    <li><a href="#" class="text-neutral-700 hover:text-neutral-950"><i class="ri-github-fill"></i></a>
+                    </li>
+                    <li><a href="#" class="text-neutral-700 hover:text-neutral-950"><i
+                                class="ri-linkedin-box-fill"></i></a>
+                    </li>
+                    <li><a href="#" class="text-neutral-700 hover:text-neutral-950"><i
+                                class="ri-facebook-circle-fill"></i></a></li>
+                </ul>
+                <span class="grow-[2] h-[1px] inline-flex bg-gray-300"></span>
+            </div> -->
+        </section>
+
+        <!-- ABOUT -->
+        <section data-aos="fade-zoom" data-aos-duration="900"
+            class="min-h-screen bg-[#5151A4] text-neutral-300 body-font">
+            <div class="container mx-auto flex px-5 py-24 md:flex-row md:justify-between gap-x-16 flex-col">
+                <div data-aos="fade-up" data-aos-duration="900" class="md:w-1/2">
+                    <div class="mb-10 title-font">
+                        <p id="about" class="font-semibold text-xl uppercase text-neutral-950">About</p>
+                        <div>
+                            <h2 class="mb-2 heading-underline font-bold text-4xl uppercase text-white">Who I Am
+                            </h2>
+                            <hr class="w-10 border-neutral-950 border-4 rounded-lg">
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>I am a student who found an interest in web development. I am enthusiastic about learning
+                            while doing the things I love. I work diligently, and hopefully, my contributions will
+                            satisfy the people I will work with.</p>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300" class="mt-10 md:w-1/2">
+                    <div class="mb-8">
+                        <h3 class="font-bold uppercase text-2xl text-white mb-3">Educational Background</h3>
+                        <div class="py-3">
+                            <h4 class="font-semibold text-lg text-white">Bachelor Science of Information Technology
+                            </h4>
+                            <p>Cavite State University - Bacoor City Campus</p>
+                            <p>2020 - Present</p>
+                        </div>
+                        <div class="py-7">
+                            <h4 class="font-semibold text-lg text-white">TVL-ICT (Computer Systems Servicing NCII)
+                            </h4>
+                            <p>Senior High School in San Nicolas III, Bacoor City</p>
+                            <p>2018 - 2020</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-bold uppercase text-2xl text-white mb-3">Experience</h3>
+                        <div class="py-3">
+                            <h4 class="font-semibold text-lg text-white">Work Immersion</h4>
+                            <p>Datacom Institute of Technology - Imus</p>
+                            <p>2020</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS  -->
+        <section class="text-neutral-700 body-font">
+            <div class="container mx-auto flex px-5 py-24 flex-col">
+                <div data-aos="fade-up" data-aos-duration="900" class="mb-10 title-font">
+                    <p id="skills" class="font-semibold text-xl uppercase text-[#5151A4]">Skills</p>
+                    <div>
+                        <h2 class="mb-2 heading-underline font-bold text-4xl uppercase text-neutral-950">Relevant Skills
+                        </h2>
+                        <hr class="w-10 border-[#5151A4] border-4 rounded-lg">
+                    </div>
+                </div>
+
+                <div class="w-full flex flex-col md:grid md:grid-cols-2 gap-16">
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300" class="space-y-4">
+                        <h3 class="font-bold uppercase text-2xl text-neutral-950">Technical</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <div
+                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
+                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
+                                    <img src="../assets/image/skills/html-5.png" alt="HTML Logo" height="48" width="48">
+                                    <img src="../assets/image/skills/css-3.png" alt="CSS Logo" height="48" width="48">
+                                </div>
+                                <div class="px-4 py-2">
+                                    <h4 class="font-semibold text-lg text-center text-neutral-950">HTML & CSS</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
+                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
+                                    <img src="../assets/image/skills/js.png" alt="JavaScript Logo" height="64"
+                                        width="64">
+                                </div>
+                                <div class="px-4 py-2">
+                                    <h4 class="font-semibold text-lg text-center text-neutral-950">JavaScript</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
+                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
+                                    <img src="../assets/image/skills/git.png" alt="Git Logo" height="48" width="48">
+                                </div>
+                                <div class="px-4 py-2">
+                                    <h4 class="font-semibold text-lg text-center text-neutral-950">Git Version Control
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
+                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
+                                    <img src="../assets/image/skills/php.png" alt="PHP Logo" height="48" width="48">
+                                </div>
+                                <div class="px-4 py-2">
+                                    <h4 class="font-semibold text-lg text-center text-neutral-950">PHP</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
+                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
+                                    <img src="../assets/image/skills/python.png" alt="Python Logo" height="48"
+                                        width="48">
+                                </div>
+                                <div class="px-4 py-2">
+                                    <h4 class="font-semibold text-lg text-center text-neutral-950">Python</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
+                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
+                                    <img src="../assets/image/skills/laravel.png" alt="Laravel Logo" height="48"
+                                        width="48">
+                                </div>
+                                <div class="px-4 py-2">
+                                    <h4 class="font-semibold text-lg text-center text-neutral-950">Laravel</h4>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
+                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
+                                    <img src="../assets/image/skills/django.png" alt="Django Logo" height="48"
+                                        width="48">
+                                </div>
+                                <div class="px-4 py-2">
+                                    <h4 class="font-semibold text-lg text-center text-neutral-950">Django</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="500" class="space-y-4">
+                        <h3 class="font-bold uppercase text-2xl text-neutral-950">Personal</h3>
+                        <ul class="space-y-2">
+                            <li>
+                                Communication
+                            </li>
+                            <li>
+                                Empathy
+                            </li>
+                            <li>
+                                Growth mindset
+                            </li>
+                            <li>
+                                Teamwork
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="body-font text-neutral-700">
+            <div class="container mx-auto flex px-5 py-24 flex-col">
+                <div>
+                    <div data-aos="fade-up" data-aos-duration="900" class="mb-10 title-font">
+                        <p id="projects" class="font-semibold text-xl uppercase text-[#5151A4]">Projects</p>
+                        <div>
+                            <h2 class="mb-2 heading-underline font-bold text-4xl uppercase text-neutral-950">Selected
+                                Works</h2>
+                            <hr class="w-10 border-[#5151A4] border-4 rounded-lg">
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300"
+                        class="w-full flex flex-col md:grid md:grid-cols-2 gap-16">
+                        <div class="group bg-white min-h-[340px] border border-gray-100 rounded shadow overflow-hidden">
+                            <div class="border-b border-gray-300 h-[1000px] max-h-[340px] overflow-hidden">
+                                <img src="../assets/image/projects/hoa-ms.png" alt="Profile"
+                                    class="transition ease-in-out duration-150 group-hover:scale-105 w-full h-full object-cover object-center">
+                            </div>
+                            <div class="px-4 py-5">
+                                <ul class="flex flex-wrap gap-x-2 gap-y-0.5">
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        Capstone
+                                        Project</li>
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        Laravel</li>
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        HTML</li>
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        JavaScript</li>
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        Tailwind CSS</li>
+                                </ul>
+                                <h4 class="font-semibold text-lg line-clamp-2 text-ellipsis text-neutral-950">
+                                    Web-based
+                                    Homeowners
+                                    Association
+                                    Management System with
+                                    Voting</h4>
+                                <!-- <a href="https://www.manuelahomes.com" target="_blank"
+                                    class="group inline-block mt-4 text-[#5151a4] font-semibold"><span
+                                        class="underline hover:no-underline">Check
+                                        the
+                                        website</span><svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2" class="inline-block w-4 h-4 ml-2"
+                                        viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg></a> -->
+                            </div>
+                        </div>
+
+                        <div class="group bg-white min-h-[340px] border border-gray-100 rounded shadow overflow-hidden">
+                            <div class="border-b border-gray-300 h-[1000px] max-h-[340px] overflow-hidden">
+                                <img src="../assets/image/projects/tfm.png" alt="Profile"
+                                    class="transition ease-in-out duration-150 group-hover:scale-105 w-full h-full object-cover object-center">
+                            </div>
+                            <div class="px-4 py-5">
+                                <ul class="flex flex-wrap gap-x-2 gap-y-0.5">
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        Django</li>
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        HTML</li>
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        JavaScript</li>
+                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                        Tailwind CSS</li>
+                                </ul>
+                                <h4 class="font-semibold text-lg line-clamp-2 text-ellipsis text-neutral-950">
+                                    TopFrag
+                                    Market</h4>
+                                <!-- <a href="https://davidrondina.pythonanywhere.com/" target="_blank"
+                                    class="group inline-block mt-4 text-[#5151a4] font-semibold"><span
+                                        class="underline hover:no-underline">Check
+                                        the
+                                        website</span><svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2" class="inline-block w-4 h-4 ml-2"
+                                        viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg></a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="min-h-screen bg-white text-neutral-950">
+            <div class="container mx-auto flex px-5 py-24 flex-col">
+                <div>
+                    <div data-aos="fade-up" data-aos-duration="900" class="mb-10 title-font">
+                        <p id="contact" class="font-semibold text-xl uppercase text-[#5151A4]">Contact</p>
+                        <div>
+                            <h2 class="mb-2 heading-underline font-bold text-4xl uppercase text-neutral-950">Get in
+                                Touch</h2>
+                            <hr class="w-10 border-[#5151A4] border-4 rounded-lg">
+                        </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300"
+                        class="w-full flex flex-col md:grid md:grid-cols-2 gap-16">
+                        <div>
+                            <h3 class="font-bold uppercase text-2xl text-neutral-950 mb-4">Contact Details</h3>
+                            <ul class="font-poppins text-neutral-700 space-y-2">
+                                <li><i class="ri-mail-line text-[#5151a4] mr-2 text-xl font-normal"></i><a
+                                        href="mailto:rondinadavid.r@gmail.com"
+                                        class="underline hover:no-underline">rondinadavid.r@gmail.com</a>
+                                </li>
+                                <li><i class="ri-smartphone-line text-[#5151a4] mr-2 text-xl font-normal"></i>(+63) 939
+                                    845
+                                    3745</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold uppercase text-2xl text-neutral-950 mb-4">Socials</h3>
+                            <ul class="font-poppins text-neutral-700 space-y-2">
+                                <li><i class="ri-facebook-circle-fill text-[#5151a4] mr-2 text-xl font-normal"></i><a
+                                        href="https://facebook.com/rondina.david"
+                                        class="underline hover:no-underline">Facebook</a>
+                                </li>
+                                <li><i class="ri-linkedin-box-fill text-[#5151a4] mr-2 text-xl font-normal"></i><a
+                                        href="https://www.linkedin.com/in/david-rondina-4986b92b5"
+                                        class="underline hover:no-underline">LinkedIn</a>
+                                </li>
+                                <li><i class="ri-github-fill text-[#5151a4] mr-2 text-xl font-normal"></i><a
+                                        href="https://github.com/davidrondina"
+                                        class="underline hover:no-underline">Github</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white font-poppins">
+        <div
+            class="container mx-auto px-5 py-10 border-t border-gray-300 flex flex-col md:flex-row md:justify-between items-center gap-4">
+            <p>&copy; 2024 <span class="font-semibold font-inter">David Rondina</span></p>
+            <p>Made with ❤️</p>
+            <p><a href="#hero" class="underline hover:no-underline">Back to top</a></p>
+        </div>
+    </footer>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> -->
+    <script src="../assets/js/app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ easing: 'ease-in-out', });
+    </script>
+</body>
+
+</html>
