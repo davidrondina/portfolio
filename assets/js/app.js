@@ -66,32 +66,32 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('skillsSectionContainer', () => ({
     skills: [
       {
-        image: '../assets/image/skills/tailwind.png',
+        image: './assets/image/skills/tailwind.png',
         altText: 'Tailwind CSS logo',
         name: 'Tailwind CSS',
       },
       {
-        image: '../assets/image/skills/js.png',
+        image: './assets/image/skills/js.png',
         altText: 'JavaScript logo',
         name: 'JavaScript',
       },
       {
-        image: '../assets/image/skills/git.png',
+        image: './assets/image/skills/git.png',
         altText: 'Git logo',
         name: 'Git Version Control',
       },
       {
-        image: '../assets/image/skills/react.png',
+        image: './assets/image/skills/react.png',
         altText: 'React logo',
         name: 'ReactJS',
       },
       {
-        image: '../assets/image/skills/laravel.png',
+        image: './assets/image/skills/laravel.png',
         altText: 'Laravel logo',
         name: 'Laravel',
       },
       {
-        image: '../assets/image/skills/django.png',
+        image: './assets/image/skills/django.png',
         altText: 'Django logo',
         name: 'Django',
       },
