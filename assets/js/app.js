@@ -63,7 +63,7 @@ document.addEventListener('alpine:init', () => {
     },
   }));
 
-  Alpine.data('skillsSectionContainer', () => ({
+  Alpine.data('Iterable', () => ({
     skills: [
       {
         image: './assets/image/skills/tailwind.png',
@@ -96,6 +96,26 @@ document.addEventListener('alpine:init', () => {
         name: 'Django',
       },
     ],
+    projects: [
+      {
+        image: './assets/image/projects/hoa-ms.png',
+        name: 'Web-Based Homeowners Association Management System with Voting',
+        tags: ['Capstone Project', 'Full stack', 'Laravel', 'HTML', 'JavaScript', 'Tailwind CSS', 'MySQL'],
+        link: null,
+      },
+      {
+        image: './assets/image/projects/goms.png',
+        name: 'Guidance Office Management System',
+        tags: ['On-the-job training', 'Full stack', 'Laravel', 'HTML', 'JavaScript', 'Tailwind CSS', 'MySQL'],
+        link: 'https://github.com/davidrondina/SHSSN-GOMS',
+      },
+      {
+        image: './assets/image/projects/tfm.png',
+        name: 'TopFrag Market - Online Marketplace with Forum',
+        tags: ['Full stack', 'Django', 'HTML', 'JavaScript', 'Tailwind CSS', 'SQLite'],
+        link: 'https://github.com/davidrondina/TopFrag-Market',
+      },
+    ]
   }));
 
 });

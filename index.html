@@ -57,7 +57,7 @@
     <!-- MOBILE NAVBAR START -->
     <div x-data="mobileNavBar">
         <button @click.stop="toggle()" :class="active ? 'bg-white text-neutral-950' : 'bg-[#5151A4] text-white'"
-            class="nav-bar-btn z-[999] fixed inline-flex transition-[left] ease-in-out duration-150 top-10 w-16 h-16 justify-center items-center rounded-full active:transition-[transform] active:scale-90 shadow-lg"
+            class="nav-bar-btn z-[999] fixed inline-flex transition-[left] ease-in-out duration-150 top-10 w-16 h-16 justify-center items-center rounded-full active:transition-[transform] active:scale-90 shadow-lg border border-neutral-600"
             style="left: -100px;">
             <i :class=" active ? 'ri-close-fill' : 'ri-menu-fill'" class="text-xl"></i>
         </button>
@@ -99,7 +99,7 @@
         </div>
     </div>
     <!-- MOBILE NAVBAR END -->
-    <main>
+    <main x-data="Iterable">
         <!-- HERO -->
         <section id="hero" class="min-h-screen text-neutral-700 body-font">
             <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
@@ -149,7 +149,7 @@
             <div class="container mx-auto flex px-5 py-24 md:flex-row md:justify-between gap-x-16 flex-col">
                 <div data-aos="fade-up" data-aos-duration="900" class="md:w-1/2">
                     <div class="mb-10 title-font">
-                        <p id="about" class="font-semibold text-xl uppercase text-neutral-950">About</p>
+                        <p id="about" class="mb-2 font-semibold text-xl uppercase text-neutral-950">About</p>
                         <div>
                             <h2 class="mb-2 heading-underline font-bold text-4xl uppercase text-white">Who I Am
                             </h2>
@@ -200,7 +200,7 @@
         <section class="text-neutral-700 body-font">
             <div class="container mx-auto flex px-5 py-24 flex-col">
                 <div data-aos="fade-up" data-aos-duration="900" class="mb-10 title-font">
-                    <p id="skills" class="font-semibold text-xl uppercase text-[#5151A4]">Skills</p>
+                    <p id="skills" class="mb-2 font-semibold text-xl uppercase text-[#5151A4]">Skills</p>
                     <div>
                         <h2 class="mb-2 heading-underline font-bold text-4xl uppercase text-neutral-950">Relevant Skills
                         </h2>
@@ -211,7 +211,7 @@
                 <div class="w-full flex flex-col md:grid md:grid-cols-1 gap-16">
                     <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300" class="space-y-4">
                         <!-- <h3 class="font-bold uppercase text-2xl text-neutral-950">Technical</h3> -->
-                        <div x-data="skillsSectionContainer" class="grid grid-cols-2 md:grid-cols-3 gap-5">
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
                             <div
                                 class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
                                 <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
@@ -236,71 +236,6 @@
                                     </div>
                                 </div>
                             </template>
-
-                            <!-- <div
-                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
-                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
-                                    <img src="./assets/image/skills/js.png" alt="JavaScript Logo" height="64"
-                                        width="64">
-                                </div>
-                                <div class="px-4 py-2">
-                                    <h4 class="font-semibold text-lg text-center text-neutral-950">JavaScript</h4>
-                                </div>
-                            </div>
-
-                            <div
-                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
-                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
-                                    <img src="./assets/image/skills/git.png" alt="Git Logo" height="48" width="48">
-                                </div>
-                                <div class="px-4 py-2">
-                                    <h4 class="font-semibold text-lg text-center text-neutral-950">Git Version Control
-                                    </h4>
-                                </div>
-                            </div>
-
-                            <div
-                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
-                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
-                                    <img src="./assets/image/skills/php.png" alt="PHP Logo" height="48" width="48">
-                                </div>
-                                <div class="px-4 py-2">
-                                    <h4 class="font-semibold text-lg text-center text-neutral-950">PHP</h4>
-                                </div>
-                            </div>
-
-                            <div
-                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
-                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
-                                    <img src="./assets/image/skills/python.png" alt="Python Logo" height="48"
-                                        width="48">
-                                </div>
-                                <div class="px-4 py-2">
-                                    <h4 class="font-semibold text-lg text-center text-neutral-950">Python</h4>
-                                </div>
-                            </div>
-
-                            <div
-                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
-                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
-                                    <img src="./assets/image/skills/laravel.png" alt="Laravel Logo" height="48"
-                                        width="48">
-                                </div>
-                                <div class="px-4 py-2">
-                                    <h4 class="font-semibold text-lg text-center text-neutral-950">Laravel</h4>
-                                </div>
-                            </div>
-
-                            <div
-                                class="bg-white hover:scale-105 hover:shadow-lg transition ease-in-out duration-150 h-[1000px] max-h-[200px] border border-gray-100 rounded shadow overflow-hidden">
-                                <div class="w-full h-3/5 overflow-hidden flex justify-center items-center">
-                                    <img src="./assets/image/skills/django.png" alt="Django Logo" height="48"
-                                        width="48">
-                                </div>
-                                <div class="px-4 py-2">
-                                    <h4 class="font-semibold text-lg text-center text-neutral-950">Django</h4>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
 
@@ -339,119 +274,84 @@
                     </div>
 
                     <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300"
-                        class="w-full flex flex-col md:grid md:grid-cols-2 gap-16">
-                        <div class="group bg-white min-h-[340px] border border-gray-100 rounded shadow overflow-hidden">
-                            <div class="border-b border-gray-300 h-[1000px] max-h-[340px] overflow-hidden">
-                                <img src="./assets/image/projects/hoa-ms.png" alt="Profile"
-                                    class="transition ease-in-out duration-150 group-hover:scale-105 w-full h-full object-cover object-center">
+                        class="w-full flex flex-col md:grid md:grid-cols-2 md:justify-items-center gap-16">
+                        <template x-for="project in projects">
+                            <div
+                                class="group bg-white min-h-[340px] border border-gray-100 rounded shadow overflow-hidden">
+                                <div class="border-b border-gray-300 h-[1000px] max-h-[340px] overflow-hidden">
+                                    <img :src="project.image" alt="Project image"
+                                        class="transition ease-in-out duration-150 group-hover:scale-105 w-full h-full object-cover object-center">
+                                </div>
+                                <div class="px-4 py-5">
+                                    <ul class="flex flex-wrap gap-x-2 text-sm md:text-base gap-y-0.5">
+                                        <template x-for="tag in project.tags">
+                                            <li
+                                                class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
+                                                <span x-text="tag"></span>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                    <h4 x-text="project.name"
+                                        class="font-semibold text-base md:text-lg line-clamp-3 text-ellipsis text-neutral-950">
+                                    </h4>
+                                    <template x-if="project.link">
+                                        <a :href="project.link" target="_blank"
+                                            class="group inline-block mt-4 text-[#5151a4] font-semibold"><span
+                                                class="underline hover:no-underline">Go to repo</span><svg fill="none"
+                                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" class="inline-block w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                            </svg></a>
+                                    </template>
+                                </div>
                             </div>
-                            <div class="px-4 py-5">
-                                <ul class="flex flex-wrap gap-x-2 gap-y-0.5">
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        Capstone
-                                        Project</li>
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        Laravel</li>
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        HTML</li>
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        JavaScript</li>
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        Tailwind CSS</li>
-                                </ul>
-                                <h4 class="font-semibold text-lg line-clamp-2 text-ellipsis text-neutral-950">
-                                    Web-based
-                                    Homeowners
-                                    Association
-                                    Management System with
-                                    Voting</h4>
-                                <!-- <a href="https://www.manuelahomes.com" target="_blank"
-                                    class="group inline-block mt-4 text-[#5151a4] font-semibold"><span
-                                        class="underline hover:no-underline">Check
-                                        the
-                                        website</span><svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="2" class="inline-block w-4 h-4 ml-2"
-                                        viewBox="0 0 24 24">
-                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                    </svg></a> -->
-                            </div>
-                        </div>
-
-                        <div class="group bg-white min-h-[340px] border border-gray-100 rounded shadow overflow-hidden">
-                            <div class="border-b border-gray-300 h-[1000px] max-h-[340px] overflow-hidden">
-                                <img src="./assets/image/projects/tfm.png" alt="Profile"
-                                    class="transition ease-in-out duration-150 group-hover:scale-105 w-full h-full object-cover object-center">
-                            </div>
-                            <div class="px-4 py-5">
-                                <ul class="flex flex-wrap gap-x-2 gap-y-0.5">
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        Django</li>
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        HTML</li>
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        JavaScript</li>
-                                    <li class="mb-3 px-4 py-1 text-[#5151A4] border border-[#5151A4] rounded-full">
-                                        Tailwind CSS</li>
-                                </ul>
-                                <h4 class="font-semibold text-lg line-clamp-2 text-ellipsis text-neutral-950">
-                                    TopFrag
-                                    Market</h4>
-                                <!-- <a href="https://davidrondina.pythonanywhere.com/" target="_blank"
-                                    class="group inline-block mt-4 text-[#5151a4] font-semibold"><span
-                                        class="underline hover:no-underline">Check
-                                        the
-                                        website</span><svg fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="2" class="inline-block w-4 h-4 ml-2"
-                                        viewBox="0 0 24 24">
-                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                    </svg></a> -->
-                            </div>
-                        </div>
+                        </template>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CONTACT -->
-        <section class="min-h-screen bg-white text-neutral-950">
+        <section class="bg-[#5151A4] text-neutral-300">
             <div class="container mx-auto flex px-5 py-24 flex-col">
                 <div>
                     <div data-aos="fade-up" data-aos-duration="900" class="mb-10 title-font">
-                        <p id="contact" class="font-semibold text-xl uppercase text-[#5151A4]">Contact</p>
+                        <p id="contact" class="font-semibold text-xl uppercase text-neutral-950">Contact</p>
                         <div>
-                            <h2 class="mb-2 heading-underline font-bold text-4xl uppercase text-neutral-950">Get in
+                            <h2 class="mb-2 heading-underline font-bold text-4xl uppercase text-white">Get in
                                 Touch</h2>
-                            <hr class="w-10 border-[#5151A4] border-4 rounded-lg">
+                            <hr class="w-10 border-neutral-950 border-4 rounded-lg">
                         </div>
                     </div>
 
                     <div data-aos="fade-up" data-aos-duration="900" data-aos-delay="300"
                         class="w-full flex flex-col md:grid md:grid-cols-2 gap-16">
                         <div>
-                            <h3 class="font-bold uppercase text-2xl text-neutral-950 mb-4">Contact Details</h3>
-                            <ul class="font-poppins text-neutral-700 space-y-2">
-                                <li><i class="ri-mail-line text-[#5151a4] mr-2 text-xl font-normal"></i><a
+                            <h3 class="mb-2 font-bold uppercase text-2xl text-white mb-4">Contact Details</h3>
+                            <ul class="font-poppins space-y-2">
+                                <li><i class="ri-mail-line text-neutral-950 mr-2 text-xl font-normal"></i><a
                                         href="mailto:rondinadavid.r@gmail.com"
                                         class="underline hover:no-underline">rondinadavid.r@gmail.com</a>
                                 </li>
-                                <li><i class="ri-smartphone-line text-[#5151a4] mr-2 text-xl font-normal"></i>(+63) 939
+                                <li><i class="ri-smartphone-line text-neutral-950 mr-2 text-xl font-normal"></i>(+63)
+                                    939
                                     845
                                     3745</li>
                             </ul>
                         </div>
 
                         <div>
-                            <h3 class="font-bold uppercase text-2xl text-neutral-950 mb-4">Socials</h3>
-                            <ul class="font-poppins text-neutral-700 space-y-2">
-                                <li><i class="ri-facebook-circle-fill text-[#5151a4] mr-2 text-xl font-normal"></i><a
+                            <h3 class="font-bold uppercase text-2xl text-white mb-4">Socials</h3>
+                            <ul class="font-poppins space-y-2">
+                                <li><i class="ri-facebook-circle-fill text-neutral-950 mr-2 text-xl font-normal"></i><a
                                         href="https://facebook.com/rondina.david"
                                         class="underline hover:no-underline">Facebook</a>
                                 </li>
-                                <li><i class="ri-linkedin-box-fill text-[#5151a4] mr-2 text-xl font-normal"></i><a
+                                <li><i class="ri-linkedin-box-fill text-neutral-950 mr-2 text-xl font-normal"></i><a
                                         href="https://www.linkedin.com/in/david-rondina-4986b92b5"
                                         class="underline hover:no-underline">LinkedIn</a>
                                 </li>
-                                <li><i class="ri-github-fill text-[#5151a4] mr-2 text-xl font-normal"></i><a
+                                <li><i class="ri-github-fill mr-2 text-neutral-950 mr-2 text-xl font-normal"></i><a
                                         href="https://github.com/davidrondina"
                                         class="underline hover:no-underline">Github</a></li>
                             </ul>
@@ -462,9 +362,9 @@
         </section>
     </main>
 
-    <footer class="bg-white font-poppins">
+    <footer class="bg-[#5151A4] px-5 font-poppins text-neutral-300">
         <div
-            class="container mx-auto px-5 py-10 border-t border-gray-300 flex flex-col md:flex-row md:justify-between items-center gap-4">
+            class="container mx-auto py-10 grid grid-cols-2 md:flex md:flex-row md:justify-between gap-4 border-t border-neutral-300">
             <p>&copy; 2024 <span class="font-semibold font-inter">David Rondina</span></p>
             <p>Made with ❤️</p>
             <p><a href="#hero" class="underline hover:no-underline">Back to top</a></p>
